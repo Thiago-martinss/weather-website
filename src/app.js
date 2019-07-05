@@ -38,7 +38,7 @@ app.get('/about', (req, res) => {
 
 app.get('/help', (req, res) => {
     res.render('help', {
-        helpText: 'This is some helpful text.',
+        helpText: 'Texto que deveria ajudar em algo',
         title: 'Help',
         name: 'Thiago Martins'
     })
@@ -47,7 +47,7 @@ app.get('/help', (req, res) => {
 app.get('/weather', (req, res) => {
     if (!req.query.address) {
         return res.send({
-            error: 'You must provide an address!'
+            error: 'Você deve digitar um endereço!'
         })
     }
 
@@ -88,7 +88,7 @@ app.get('/weather', (req, res) => {
 app.get('/products', (req, res) => {
     if (!req.query.search) {
         return res.send({
-            error: 'You must provide a search term'
+            error: 'Você precisa submeter uma busca!'
         })
     }
 
@@ -102,7 +102,7 @@ app.get('/help/*', (req, res) => {
     res.render('404', {
         title: '404',
         name: 'Andrew Mead',
-        errorMessage: 'Help article not found.'
+        errorMessage: 'Artigo de ajuda não encontrado.'
     })
 })
 
@@ -110,7 +110,7 @@ app.get('*', (req, res) => {
     res.render('404', {
         title: '404',
         name: 'Andrew Mead',
-        errorMessage: 'Page not found.'
+        errorMessage: 'Pagina não encontrada.'
     })
 })
 
