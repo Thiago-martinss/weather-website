@@ -5,11 +5,12 @@ const forecast = (latitude, longitude, callback) => {
 
     request({ url, json: true }, (error, { body }) => {
         if (error) {
-            callback('Unable to connect to weather service!', undefined)
+            callback('Não foi possivel connectar com a applicação de temperatura', undefined)
         } else if (body.error) {
-            callback('Unable to find location', undefined)
+            callback('Não foi possivel encontrar o local', undefined)
         } else {
-            callback(undefined, body.daily.data[0].summary + 'Temperatura atual ' + body.currently.temperature + ' Graus Celsius. Chance de chuva ' + body.currently.precipProbability + '%')
+            console.log(body.daily.data[0])
+            callback(undefined, body.daily.data[0].summary + 'Temperatura atual é ' + body.currently.temperature + ' Graus Celsius. A temperatura maxima hoje pode chegar até ' + body.daily.data[0].temperatureHigh + ' Graus Celsius e a minima é ' + body.daily.data[0].temperatureLow + ' Graus Celsius, Chance de chuva ' + body.currently.precipProbability + ' % ')
         }
     })
 }
